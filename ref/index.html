@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <title>API</title>
+    <style>
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        body {
+            font-size: 1rem;
+            line-height: 1.5;
+            font-family: system-ui, sans-serif;
+        }
+
+        .text-box-wrapper {
+            width: fit-content;
+            max-width: 50ch;
+
+            &>div {
+                padding: 1rem;
+                border: 1px solid black;
+            }
+
+            & p {
+                padding: 1rem;
+            }
+        }
+
+        .large-text {
+            font-size: 1.16625rem;
+        }
+
+        form {
+            width: fit-content;
+            border: 1px solid black;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            label {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            input[type="color"] {
+                border: 1px solid black;
+                width: 100%;
+            }
+
+            button {
+                margin-inline-start: auto;
+                font-size: inherit;
+                font-family: inherit;
+                cursor: pointer;
+            }
+
+        }
+
+        /* wcag output */
+        .wcag {
+            display: grid;
+            grid-gap: 0;
+            grid-template-columns: max-content;
+            width: fit-content;
+            border-width: 0.0625rem 0.0625rem 0 0.0625rem;
+            border-color: currentColor;
+            border-style: solid;
+
+            & dt,
+            & dd {
+                padding: 0.3125rem 0.5rem;
+            }
+
+            & dt {
+                border-width: 0 0.0625rem 0.0625rem 0;
+                border-color: currentColor;
+                border-style: solid;
+            }
+
+            & dd {
+                grid-column-start: 2;
+                border-width: 0 0 0.0625rem 0;
+                border-color: currentColor;
+                border-style: solid;
+            }
+        }
+    </style>
+    <script type="module" src="./index.js"></script>
+</head>
+
+<body>
+    <h1>Colour Contrast Checker</h1>
+    <p>Check to see if the contrast between your text and background colours meets the WCAG standards.</p>
+    <div class="forms">
+        <h2>Forms</h2>
+        <form id="colour-pickers">
+            <fieldset>
+                <legend>Colour Picker</legend>
+                <label>
+                    <span>Text</span>
+                    <input type="color" name="colour" id="foreground" value="#000000" aria-describedby="foregroundHex">
+                    <span id="foregroundHex">#000000</span>
+                </label>
+                <label>
+                    <span>Background</span>
+                    <input type="color" name="colour" id="background" value="#FFFFFF" aria-describedby="backgroundHex">
+                    <span id="backgroundHex">#FFFFFF</span>
+                </label>
+            </fieldset>
+            <button>Submit</button>
+
+        </form>
+        <form id="hex-inputs">
+            <fieldset>
+                <legend>Input hex colours</legend>
+                <label>
+                    <span>Text</span>
+                    <input type="text" name="colour2" id="foreground2" pattern="^#[0-6A-Fa-f]{6}$"
+                        title="Enter a valid hex color starting with #, using only 0-6 and A-F (case insensitive)"
+                        value="#000000" required>
+                </label>
+                <label>
+                    <span>Background</span>
+                    <input type="text" name="colour2" id="background2" pattern="^#[0-6A-Fa-f]{6}$"
+                        title="Enter a valid hex color starting with #, using only 0-6 and A-F (case insensitive)"
+                        value="#FFFFFF" required>
+
+                </label>
+            </fieldset>
+            <button>Submit</button>
+        </form>
+    </div>
+    <div class="output" id="output" aria-live="polite" tabindex="-1">
+        <div>
+            <dl class="wcag" id="wcag">
+                <dt>Ratio</dt>
+                <dd id="ratio">21</dd>
+                <dt>AA (normal text)</dt>
+                <dd id="aa">pass</dd>
+                <dt>AA (large text)</dt>
+                <dd id="aa-large">pass</dd>
+                <dt>AAA (normal text)</dt>
+                <dd id="aaa">pass</dd>
+                <dt>AAA (large text)</dt>
+                <dd id="aaa-large">pass</dd>
+            </dl>
+        </div>
+
+        <div class="text-box-wrapper">
+            <div>
+                <h2>Normal text &equals; 16px/1rem</h2>
+                <p data-text-box style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                    Lorem
+                    ipsum dolor sit
+                    amet consectetur adipisicing elit. Iure placeat
+                    illum
+                    cumque
+                    minima quidem nemo
+                    rerum laborum atque fugit accusamus?</p>
+            </div>
+            <div>
+                <h2>Large text &gt;&equals; 18.66px/1.16625rem</h2>
+
+                <p large-text" data-text-box style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">Lorem
+                    ipsum dolor
+                    sit amet
+                    consectetur adipisicing elit. Iure placeat
+                    illum cumque
+                    minima quidem nemo
+                    rerum laborum atque fugit accusamus?</p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[DESCRIPTION]">
+    <title>Colour Contrast Checker</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./index.js" type="module"></script>
+</head>
+
+<body>
+    <div id="loader" class="loader"><span class="visually-hidden">The page is loading...</span></div>
+    <span class="visually-hidden" aria-hidden="true" id="page-loaded"></span>
+    <a href="#main-content" class="element-invisible element-focusable skip-link">Skip to main content</a>
+
+    <div class="theme-toggler">
+        <p class="light">Light<span class="visually-hidden"> theme inactive</span></p><button type="button"
+            aria-pressed="true" aria-label="Toggle theme"><span></span></button>
+        <p class="dark">Dark<span class="visually-hidden"> theme active</span></p>
+    </div>
+
+    <header class="header">
+        <h1><img src="./img/logo.png" alt=""><span>Colour Contrast Checker</span></h1>
+        <p>Check if the contrast between text and background colour meets <abbr
+                title="Web Content Accessibility Guidelines">WCAG</abbr> standards.</p>
+    </header>
+
+    <main class="main container" id="main-content">
+
+        <!-- <h1>Colour Contrast Checker</h1> -->
+
+        <div class="forms flow">
+            <h2>Check Contrast</h2>
+            <div>
+                <form id="colour-pickers" class="element">
+                    <h3>Pick Colours</h3>
+                    <div>
+                        <label>
+                            <span>Text</span>
+                            <div>
+                                <input type="color" name="colour" id="foreground" value="#000000"
+                                    aria-describedby="foregroundHex">
+                                <span id="foregroundHex">#000000</span>
+                            </div>
+                        </label>
+                        <label>
+                            <span>Background</span>
+                            <div>
+                                <input type="color" name="colour" id="background" value="#FFFFFF"
+                                    aria-describedby="backgroundHex">
+                                <span id="backgroundHex">#FFFFFF</span>
+                            </div>
+                        </label>
+                    </div>
+                    <button>Submit</button>
+                </form>
+                <span class="h2">or</span>
+                <form id="hex-inputs" class="element">
+                    <h3>Input Hex Colours</h3>
+                    <div>
+                        <label>
+                            <span>Text</span>
+                            <input type="text" name="colour2" id="foreground2" pattern="^#[0-9A-Fa-f]{6}$"
+                                title="Enter a valid hex color starting with #, using only 0-9 and A-F (case insensitive)"
+                                value="#000000" required>
+                        </label>
+                        <label>
+                            <span>Background</span>
+                            <input type="text" name="colour2" id="background2" pattern="^#[0-9A-Fa-f]{6}$"
+                                title="Enter a valid hex color starting with #, using only 0-9 and A-F (case insensitive)"
+                                value="#FFFFFF" required>
+
+                        </label>
+                    </div>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="output" id="output" aria-live="polite" tabindex="-1">
+            <h2>Results</h2>
+            <div>
+                <table id="wcag" class="wcag-chart element">
+                    <caption>WCAG Contrast Data</caption>
+                    <tbody>
+                        <tr scope="row">
+                            <th>Ratio</th>
+                            <td id="ratio">21</td>
+                        </tr>
+                        <tr scope="row">
+                            <th>AA (normal text)</th>
+                            <td id="aa">pass</td>
+                        </tr>
+                        <tr scope="row">
+                            <th>AA (large text)</th>
+                            <td id="aa-large">pass</td>
+                        </tr>
+                        <tr scope="row">
+                            <th>AAA (normal text)</th>
+                            <td id="aaa">pass</td>
+                        </tr>
+                        <tr scope="row">
+                            <th>AAA (large text)</th>
+                            <td id="aaa-large">pass</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-box-wrapper">
+                <div>
+                    <h3>Normal text &equals; 16px/1rem</h3>
+                    <p class="normal-text" data-text-box
+                        style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                        Lorem
+                        ipsum dolor sit
+                        amet consectetur adipisicing elit. Iure placeat
+                        illum
+                        cumque
+                        minima quidem nemo
+                        rerum laborum atque fugit accusamus?</p>
+                </div>
+                <div>
+                    <h3>Large text &gt;&equals; 18.66px/1.16625rem</h3>
+
+                    <p class="large-text" data-text-box
+                        style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+                        Lorem
+                        ipsum dolor
+                        sit amet
+                        consectetur adipisicing elit. Iure placeat
+                        illum cumque
+                        minima quidem nemo
+                        rerum laborum atque fugit accusamus?</p>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer class="footer">
+        <a href="https://github.com/chrisnajman/colour-contrast-checker" target="_blank" rel="noopener noreferrer"
+            class="external-link">
+            GitHub Repository
+        </a>
+    </footer>
+
+</body>
+
+</html>
