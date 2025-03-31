@@ -8,7 +8,7 @@
 :root {
     overflow-y: scroll;
 
-    --border-radius: 1.25rem;
+    --border-radius: 0.75rem;
     --bold: 600;
 
     /* light mode (default) */
@@ -16,6 +16,7 @@
     --body-fg: #000;
     --el-bg: #fff;
     --link-blue: blue;
+    --shadow: 0.1875rem 0.1875rem 0.3125rem 0rem rgba(0, 0, 0, 0.3);
 }
 
 .darkmode {
@@ -23,6 +24,7 @@
     --body-fg: #fff;
     --el-bg: #000;
     --link-blue: aqua;
+    --shadow: 0.1875rem 0.1875rem 0.3125rem 0rem rgba(0, 0, 0, 1);
 }
 
 :focus-visible {
@@ -156,6 +158,13 @@ abbr {
     /* em NOT rem & margin-block-start NOT margin-block-end */
 }
 
+.element {
+    border-radius: var(--border-radius);
+    border: 0.125rem solid currentColor;
+    overflow: clip;
+    box-shadow: var(--shadow);
+}
+
 .header,
 .footer,
 .element {
@@ -223,7 +232,6 @@ abbr {
     }
 
     & form {
-        border: 0.125rem solid currentColor;
         padding: 1rem;
         display: flex;
         flex-direction: column;
@@ -265,9 +273,6 @@ abbr {
     }
 
     & .text-box {
-        border-width: 0.125rem;
-        border-style: solid;
-        border-color: currentColor;
         padding: 1rem;
 
         & p {
@@ -281,13 +286,15 @@ abbr {
 
     & .wcag-chart {
         border-collapse: collapse;
-        border: 0.125rem solid currentColor;
+        /* border: 0.125rem solid currentColor; */
 
         & caption {
             font-weight: var(--bold);
-            border-width: 0.125rem 0.125rem 0 0.125rem;
-            border-style: solid;
-            border-color: currentColor;
+            border: 0;
+            border-bottom: 0.125rem solid black;
+            border-radius: 0;
+            padding-block: 1rem 0.5rem;
+            box-shadow: none;
         }
 
         & tr {
