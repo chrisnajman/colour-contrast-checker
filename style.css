@@ -160,7 +160,6 @@ abbr {
 
 .element {
     border-radius: var(--border-radius);
-    border: 0.125rem solid currentColor;
     overflow: clip;
     box-shadow: var(--shadow);
 }
@@ -270,6 +269,7 @@ abbr {
         flex-wrap: wrap;
         gap: 1rem;
         justify-content: center;
+        text-align: center;
     }
 
     & .text-box {
@@ -277,21 +277,17 @@ abbr {
 
         & p {
             padding: 0.5rem;
+            border-radius: var(--border-radius);
+            min-height: 8.125rem;
         }
-    }
-
-    & h3 {
-        text-align: center;
     }
 
     & .wcag-chart {
         border-collapse: collapse;
-        /* border: 0.125rem solid currentColor; */
-
         & caption {
             font-weight: var(--bold);
             border: 0;
-            border-bottom: 0.125rem solid black;
+            border-bottom: 0.0625rem solid currentColor;
             border-radius: 0;
             padding-block: 1rem 0.5rem;
             box-shadow: none;
