@@ -31,7 +31,7 @@ export default function colourPickers() {
 
     paintTextBoxes(foreground, background)
 
-    // Focus on chart and text box for screenreaders, after form submission
-    document.getElementById("output").focus({ preventScroll: true })
+    // Focus on chart and text boxes after form submission
+    document.getElementById("output").focus()
   })
 }

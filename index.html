@@ -33,10 +33,11 @@
 
     <main class="main container" id="main-content">
 
-        <!-- <h1>Colour Contrast Checker</h1> -->
-
         <div class="forms flow">
-            <h2>Check Contrast</h2>
+            <h2>Input</h2>
+            <p class="visually-hidden">Either pick the text and background colours using the 'Pick Colours' form or
+                manually input hex colour codes using the 'Input hex colours' form. After submitting a form, the focus
+                will shift to the 'output' region, where you can read the results.</p>
             <div>
                 <form id="colour-pickers" class="element">
                     <h3>Pick Colours</h3>
@@ -60,7 +61,7 @@
                     </div>
                     <button>Submit</button>
                 </form>
-                <span class="h2">or</span>
+                <span class="h2" aria-hidden="true">or</span>
                 <form id="hex-inputs" class="element">
                     <h3>Input Hex Colours</h3>
                     <div>
@@ -82,11 +83,12 @@
                 </form>
             </div>
         </div>
-        <div class="output" id="output" aria-live="polite" tabindex="-1">
-            <h2>Results</h2>
-            <div>
+        <hr>
+        <div class="output flow" id="output" aria-live="polite" tabindex="-1">
+            <h2>Output</h2>
+            <div class="results">
                 <table id="wcag" class="wcag-chart element">
-                    <caption>WCAG Contrast Data</caption>
+                    <caption class="element">WCAG Contrast Data</caption>
                     <tbody>
                         <tr scope="row">
                             <th>Ratio</th>
@@ -110,11 +112,10 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
 
-            <div class="text-box-wrapper">
-                <div>
-                    <h3>Normal text &equals; 16px/1rem</h3>
+
+                <div class="text-box element flow">
+                    <h3>Normal text (&equals; 16px/1rem)</h3>
                     <p class="normal-text" data-text-box
                         style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
                         Lorem
@@ -125,8 +126,8 @@
                         minima quidem nemo
                         rerum laborum atque fugit accusamus?</p>
                 </div>
-                <div>
-                    <h3>Large text &gt;&equals; 18.66px/1.16625rem</h3>
+                <div class="text-box element flow">
+                    <h3>Large text (&gt;&equals; 18.66px/1.16625rem)</h3>
 
                     <p class="large-text" data-text-box
                         style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
@@ -138,6 +139,7 @@
                         minima quidem nemo
                         rerum laborum atque fugit accusamus?</p>
                 </div>
+
             </div>
         </div>
 
