@@ -27,7 +27,7 @@ Built with **vanilla ES6 JavaScript**, focusing on modern syntax and browser API
 The JavaScript has been split into separate modules, improving code modularity:
 
 - `colour-pickers/colour-pickers.js`: Handles colour selection via input pickers and updates the UI accordingly.
-- `print-hex.js`: Updates the displayed hex value as users select colours.
+  - `print-hex.js`: Updates the displayed hex value as users select colours.
 - `hex-inputs/hex-inputs.js`: Manages manual hex code input and triggers WCAG evaluation.
 - `data/fetch-wcag-data.js`: Fetches contrast evaluation results from the [WebAIM API](https://webaim.org/resources/contrastchecker/).
 - `data/display-wcag-data.js`: Updates the UI with WCAG contrast results.
