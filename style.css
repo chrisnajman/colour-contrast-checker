@@ -7,7 +7,9 @@
 
 :root {
     overflow-y: scroll;
+    color-scheme: light dark;
 
+    /* Shared */
     --border-radius: 0.75rem;
     --bold: 600;
 
@@ -104,7 +106,7 @@ h2 {
 }
 h3 {
     font-size: clamp(1rem, 0.8995rem + 0.4673vw, 1.25rem);
-    border-block-end: 1px solid currentColor;
+    border-block-end: 0.0625rem solid currentColor;
     padding-bottom: 0.5rem;
     margin-inline: -1rem;
 }
@@ -232,7 +234,7 @@ abbr {
             }
 
             & span {
-                border-bottom: 1px solid currentColor;
+                border-bottom: 0.0625rem solid currentColor;
                 padding-block-end: 0.5rem;
 
                 @media screen and (width < 36.25rem) {
