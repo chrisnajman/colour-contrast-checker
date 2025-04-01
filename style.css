@@ -230,6 +230,16 @@ abbr {
             @media screen and (width < 36.25rem) {
                 padding: 0;
             }
+
+            & span {
+                border-bottom: 1px solid currentColor;
+                padding-block-end: 0.5rem;
+
+                @media screen and (width < 36.25rem) {
+                    padding: 0;
+                    border: 0;
+                }
+            }
         }
     }
 

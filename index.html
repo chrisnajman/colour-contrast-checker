@@ -34,10 +34,10 @@
     <main class="main container" id="main-content">
 
         <div class="forms flow">
-            <h2>Input</h2>
+            <h2>Choose Colours</h2>
             <p class="visually-hidden">Either pick the text and background colours using the 'Pick Colours' form or
-                manually input hex colour codes using the 'Input hex colours' form. After submitting a form, the focus
-                will shift to the 'output' region, where you can read the results.</p>
+                manually input hex colour codes using the 'Write colours' form. After submitting a form, the focus
+                will shift to the 'Results' region, where you can read the results.</p>
             <div>
                 <form id="colour-pickers" class="element">
                     <h3>Pick Colours</h3>
@@ -61,9 +61,9 @@
                     </div>
                     <button>Check</button>
                 </form>
-                <span class="h2" aria-hidden="true">or</span>
+                <span class="h2" aria-hidden="true"><span>or</span></span>
                 <form id="hex-inputs" class="element">
-                    <h3>Input Hex Colours</h3>
+                    <h3>Write Colours</h3>
                     <div>
                         <label>
                             <span>Text</span>
@@ -85,7 +85,7 @@
         </div>
         <hr>
         <div class="output flow" id="output" aria-live="polite" tabindex="-1">
-            <h2>Output</h2>
+            <h2>Results</h2>
             <div class="results">
                 <div class="element">
                     <table id="wcag" class="wcag-chart">
