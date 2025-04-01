@@ -15,7 +15,7 @@ A simple and accessible web tool for checking the contrast between text and back
 
 ## How to Use
 
-- Pick colours: Use the colour picker or enter hex codes manually.
+- Choose colours: Use the colour picker or enter hex codes manually.
 - Check Results: Click the "Check" button to evaluate contrast.
 - Review WCAG Data: See the contrast ratio and pass/fail results.
 - Preview Text: View how text appears with chosen colours.
